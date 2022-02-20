@@ -37,9 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/login").permitAll()
 		.anyRequest().authenticated()
-		.and()
-        .cors()
-        .configurationSource(this.corsConfigurationSource())
+//		.and()
+//        .cors()
+//        .configurationSource(this.corsConfigurationSource())
     .and()
 	.formLogin()//3
 	.loginPage("https://library-front-61849.web.app/login")
@@ -71,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         corsConfiguration.addAllowedMethod(CorsConfiguration.ALL);
         corsConfiguration.addAllowedHeader(CorsConfiguration.ALL);
         corsConfiguration.addExposedHeader(HEADER_STRING);
-        corsConfiguration.addAllowedOrigin("https://library-front-61849.web.app");
+        corsConfiguration.addAllowedOrigin("https://library-front-61849.web.app/");
 
         UrlBasedCorsConfigurationSource corsSource = new UrlBasedCorsConfigurationSource();
         corsSource.registerCorsConfiguration("/**", corsConfiguration);
