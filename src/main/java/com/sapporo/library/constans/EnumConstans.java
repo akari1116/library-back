@@ -10,7 +10,7 @@ public class EnumConstans {
 	
 	public enum Common {
 		
-		DEVELOP_FRONT_HOST("http://localhost:4200"),
+		DEVELOP_FRONT_HOST("https://library-front-61849.web.app/"),
 		PRODUCTION_FRONT_HOST("");
 		
         private String value;
