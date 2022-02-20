@@ -35,7 +35,7 @@ public class LibraryRestController {
 	@CrossOrigin
 	@GetMapping("bookdata/{sectionId}")
 	Response getBooks(@PathVariable("sectionId") Section sectionId) { 
-		//指定された大区分の書籍一覧を取得
+		//指定された大区分の書籍一覧を取
 		Response bookList = bookDataService.findBySectionId(sectionId);
 		return bookList;
 	}
