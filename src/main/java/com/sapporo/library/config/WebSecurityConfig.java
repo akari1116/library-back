@@ -42,9 +42,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .configurationSource(this.corsConfigurationSource())
     .and()
 	.formLogin()//3
-	.loginPage("http://localhost:4200/login")
+	.loginPage("https://library-front-61849.web.app/login")
 	.permitAll()
-		.defaultSuccessUrl("http://localhost:4200/", true)
+		.defaultSuccessUrl("https://library-front-61849.web.app/", true)
 		 .and().csrf().disable()
 		 .addFilter(new JWTAuthenticationFilter(authenticationManager(), bCryptPasswordEncoder()))
        .addFilter(new JWTAuthorzationFilter(authenticationManager()))
