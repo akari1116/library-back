@@ -35,14 +35,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-		.antMatchers("https://library-back-deve.herokuapp.com/login").permitAll()
+		.antMatchers("/login").permitAll()
 		.anyRequest().authenticated()
 		.and()
         .cors()
         .configurationSource(this.corsConfigurationSource())
     .and()
 	.formLogin()//3
-	.loginPage("https://library-front-61849.web.app/login")
+	.loginPage("/login")
 	.permitAll()
 		.defaultSuccessUrl("https://library-front-61849.web.app/", true)
 		 .and().csrf().disable()
