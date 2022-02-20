@@ -37,9 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/login").permitAll()
 		.anyRequest().authenticated()
-//		.and()
-//        .cors()
-//        .configurationSource(this.corsConfigurationSource())
+		.and()
+        .cors()
+        .configurationSource(this.corsConfigurationSource())
     .and()
 	.formLogin()//3
 	.loginPage("https://library-front-61849.web.app/login")
