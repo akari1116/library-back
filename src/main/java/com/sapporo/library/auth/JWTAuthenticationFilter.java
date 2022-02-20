@@ -40,7 +40,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		this.authenticationManager = authenticationManager;
 
 		// ログイン用のpathを変更する
-		setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("https://library-back-deve.herokuapp.com/login", "POST"));
+		setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/login", "POST"));
 
 		// ログイン用のID/PWのパラメータ名を変更する
 		setUsernameParameter(EMAIL);

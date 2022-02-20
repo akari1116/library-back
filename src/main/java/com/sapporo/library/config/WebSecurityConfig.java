@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-		.antMatchers("https://library-back-deve.herokuapp.com/login").permitAll()
+		.antMatchers("/login").permitAll()
 		.anyRequest().authenticated()
 		.and()
         .cors()
