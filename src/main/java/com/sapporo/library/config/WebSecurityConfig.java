@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,6 +20,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import com.sapporo.library.auth.JWTAuthenticationFilter;
+import com.sapporo.library.auth.JWTAuthorzationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -33,18 +37,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/login").permitAll()
 		.anyRequest().authenticated()
-		.and()
-        .cors()
-        .configurationSource(this.corsConfigurationSource())
+//		.and()
+//        .cors()
+//        .configurationSource(this.corsConfigurationSource())
     .and()
 	.formLogin()//3
-//	.loginPage("https://library-front-61849.web.app/login")
+	.loginPage("https://library-front-61849.web.app/login")
 	.permitAll()
-		.defaultSuccessUrl("https://library-front-61849.web.app/");
-//		 .and().csrf().disable()
-//		 .addFilter(new JWTAuthenticationFilter(authenticationManager(), bCryptPasswordEncoder()))
-//       .addFilter(new JWTAuthorzationFilter(authenticationManager()))
-//      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		.defaultSuccessUrl("https://library-front-61849.web.app/")
+		 .and().csrf().disable()
+		 .addFilter(new JWTAuthenticationFilter(authenticationManager(), bCryptPasswordEncoder()))
+       .addFilter(new JWTAuthorzationFilter(authenticationManager()))
+      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	
     }
 	
