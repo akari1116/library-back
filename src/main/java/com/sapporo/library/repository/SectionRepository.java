@@ -9,5 +9,5 @@ import com.sapporo.library.entity.Section;
 
 
 public interface SectionRepository extends JpaRepository<Section, Integer>{
-
+	
 }
